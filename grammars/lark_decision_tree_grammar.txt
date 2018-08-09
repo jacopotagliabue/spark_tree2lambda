@@ -1,0 +1,23 @@
+start: full_comparison+
+
+test: FEATURE CONDITION SIGN? FLOAT
+if_comparison: IF "(" test ")" RETURN -> if_compare
+else_comparison: ELSE "(" test ")" RETURN -> else_compare
+prediction: PREDICT FLOAT RETURN -> predict
+instructions: full_comparison RETURN? | prediction RETURN?
+if_block: if_comparison instructions+
+else_block: else_comparison instructions+
+full_comparison: if_block else_block
+
+FEATURE: "feature " NUMBER
+IF: "If"
+ELSE: "Else"
+CONDITION: "="|"<="|">="|">"|"<"
+PREDICT: "Predict:"
+SPACE: " "
+RETURN: "\n"
+SIGN: "-"
+
+%import common.INT -> NUMBER
+%import common.FLOAT -> FLOAT
+%ignore SPACE

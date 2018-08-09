@@ -1,0 +1,28 @@
+frameworkVersion: ">=1.15.2"
+
+service: spark-decision-tree-tutorial
+
+provider:
+  name: aws
+  runtime: python2.7
+  stage: dev
+  region: us-west-2
+
+package:
+  exclude:
+    - data/**
+    - test_data/**
+    - notebooks/**
+    - playground/**
+    - test_spark2python.py
+
+functions:
+  predict:
+    handler: handler.predict
+    timeout: 10
+    events:
+      - http:
+          path: /predict
+          method: get
+          cors: true
+
