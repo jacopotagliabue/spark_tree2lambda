@@ -1,4 +1,7 @@
-
+"""
+    Example class providing very simple tests to check the service is doing the proper conversion.
+    Obv. would need improvement for PROD use!
+"""
 
 class TestSpark2Python(object):
 
