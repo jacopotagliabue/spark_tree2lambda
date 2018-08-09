@@ -11,6 +11,9 @@ We share a pure Pythonic end-to-end workflow that will get you in minutes from a
 * build a prediction service that recursively travels the parse tree at run time and return the prediction based on the model decision nodes
 * wrap the service in an AWS lambda function that can be invoked through API Gateway
 
+Obviously, when going from Spark serialized model to runnable Python code, a more "brute-force" approach is available - i.e. producing a python function replacing line after line Spark's syntactic features with Python's. We provide (see section below) a quick "regex+loop replace" version of that idea as well, but since
+it's less interesting the endpoint in the project is powered by the parse tree (replacing that with the "brute-force" version will be trivial if one wishes to do so).
+
 ## Project structure
 The lambda entry point for the endpoint is in `handler.py`, while the model conversion is made through the `spark_to_python_service.py` service. The project comes with several folders with additional materials, in particular:
 
@@ -22,6 +25,7 @@ The lambda entry point for the endpoint is in `handler.py`, while the model conv
 * test_data: contains a bunch of artifical serialized models used to write tests for the main service
 
 ## Brute-force model translation
+TBC
 
 ## Deployment
 Make sure to have Serverless installed and configured with AWS credentials; then, install with pip the dependencies in a project folder (e.g. `vendored`):
