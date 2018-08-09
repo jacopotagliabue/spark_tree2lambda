@@ -1,5 +1,6 @@
 # spark_tree2lambda
-This project is the companion code for my Medium post on serving a decision tree trained with Spark through AWS Lambda (using [Serverless](https://serverless.com/)): in a few minutes and a few lines of Python code you can serve predictions from a trained model through a lambda-powered endpoint. 
+This project is the companion code for my Medium post on serving a decision tree trained with Spark through AWS Lambda (using [Serverless](https://serverless.com/)): 
+in a few minutes and a few lines of Python code you can serve predictions from a trained model through a lambda-powered endpoint(from "big-data" to "micro-services", so to speak). 
 
 Please refer to the Medium blog [post](https://medium.com/@jacopotagliabue/serving-tensorflow-predictions-with-python-and-aws-lambda-facb4ab87ddd#.v01eyg8kh) for a full explanation on the code structure, the philosophy behind it and how to properly deploy it.
 
