@@ -4,7 +4,12 @@ This project is the companion code for my Medium post on serving a decision tree
 Please refer to the Medium blog [post](https://medium.com/@jacopotagliabue/serving-tensorflow-predictions-with-python-and-aws-lambda-facb4ab87ddd#.v01eyg8kh) for a full explanation on the code structure, the philosophy behind it and how to properly deploy it.
 
 ## TL;DR
-We share a pure Pythonic end-to-end workflow that will get you in minutes from a model trained in Spark to a public endpoint serving predictions. The steps
+We share a pure Pythonic end-to-end workflow that will get you in minutes from a model trained in Spark to a public endpoint serving predictions. The main steps are the following:
+
+* (pre-requisite) train a decision tree model in Spark and export the serialized model to a txt file
+* build a [lark](https://github.com/lark-parser/lark) grammar to parse the serialized model as it if was a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language)
+* build a prediction service that recursively travels the parse tree at run time and return the prediction based on the model decision nodes
+* wrap the service in an AWS lambda function that can be invoked through API Gateway
 
 ## Project structure
 The lambda entry point for the endpoint is in `handler.py`, while the model conversion is made through the `spark_to_python_service.py` service. The project comes with several folders with additional materials, in particular:
