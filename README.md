@@ -46,4 +46,4 @@ Tests built with [pytest](https://docs.pytest.org/). Use
 
 ```pytest test_spark2python.py```
 
-to run some basic tests.
+to run some basic tests (or something like `VIRTUAL_ENV/python -m pytest test_spark2python.py` from a virtualenv).
