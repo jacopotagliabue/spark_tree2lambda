@@ -31,6 +31,7 @@ Spark's syntax with Python's: the result is a runnable python function, whose if
 but it provides a working alternative to the fancy DSL approach we championed in the blog post.
 
 ## Deployment
+After cloning the repo, remember to create a local `settings.ini` from the provided template (which contains sensible default values given the files in the tutorial).
 Make sure to have Serverless installed and configured with AWS credentials; then, install with pip the dependencies in a project folder (e.g. `vendored`):
 
 ``` 
