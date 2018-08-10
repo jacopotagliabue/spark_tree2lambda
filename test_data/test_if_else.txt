@@ -1,0 +1,6 @@
+DecisionTreeModel classifier of depth 2 with 2 nodes
+  If (feature 0 <= 0.5678)
+   Predict: 1.0
+  Else (feature 0 > 0.5678)
+   Predict: 0.0
+
