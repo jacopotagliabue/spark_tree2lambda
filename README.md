@@ -26,7 +26,9 @@ The lambda entry point for the endpoint is in `handler.py`, while the model conv
 * test_data: contains a bunch of artifical serialized models used to write tests for the main service
 
 ## Brute-force model translation
-TBC
+The playground folder contains the `spark_to_python_conversion.py` utility tool, that is a quick and dirty script that will take a Spark model in input and, _line after line_ sequentially replace
+Spark's syntax with Python's: the result is a runnable python function, whose if/else block are "isomorphic" to the original serialized model file. It's fairly untested and basic, 
+but it provides a working alternative to the fancy DSL approach we championed in the blog post.
 
 ## Deployment
 Make sure to have Serverless installed and configured with AWS credentials; then, install with pip the dependencies in a project folder (e.g. `vendored`):
