@@ -31,3 +31,27 @@ class TestSpark2Python(object):
             assert test_model.predict(one_f) == '1.0'
 
         return
+
+    def test_simple_if_else_negative(self):
+        model_file = 'test_if_else_negative.txt'
+        test_model = self.load_model(model_file)
+        class_zero_feature_vectors = [[-9.9080]]
+        class_one_feature_vectors = [[-30]]
+        for zero_f, one_f in zip(class_zero_feature_vectors, class_one_feature_vectors):
+            assert test_model.predict(zero_f) == '0.0'
+            assert test_model.predict(one_f) == '1.0'
+
+        return
+
+    def test_simple_if_else_nested(self):
+        model_file = 'test_nested_if_else.txt'
+        test_model = self.load_model(model_file)
+        class_zero_feature_vectors = [[-6.0, 12.986], [2.98, 8.1276]]
+        class_one_feature_vectors = [[-20.9090, 1.2133], [-4.8790, 0.789]]
+        for zero_f, one_f in zip(class_zero_feature_vectors, class_one_feature_vectors):
+            assert test_model.predict(zero_f) == '0.0'
+            assert test_model.predict(one_f) == '1.0'
+
+        return
+
+

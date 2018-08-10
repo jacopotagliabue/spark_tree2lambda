@@ -1,0 +1,13 @@
+DecisionTreeModel classifier of depth 4 with 4 nodes
+  If (feature 0 <= -0.5678)
+   If (feature 1 <= 11.0)
+    Predict: 1.0
+   Else (feature 1 > 11.0)
+    Predict: 0.0
+  Else (feature 0 > -0.5678)
+   If (feature 1 <= 0.123)
+    Predict: 1.0
+   Else (feature 1 > 0.123)
+    Predict: 0.0
+
+
