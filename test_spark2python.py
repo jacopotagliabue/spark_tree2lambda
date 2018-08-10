@@ -54,4 +54,40 @@ class TestSpark2Python(object):
 
         return
 
+    def test_equality_parsing(self):
+        # load any model here, no difference
+        model_file = 'test_if_else.txt'
+        test_model = self.load_model(model_file)
+        # positive sign
+        tokens = ['feature 100', '>=', 12.8774]
+        parsed_tokens = test_model.parse_equality_test(tokens)
+        assert parsed_tokens['sign'] == 1.0
+        assert parsed_tokens['value'] == 12.8774
+        assert parsed_tokens['index'] == 100
+        # negative sign
+        tokens = ['feature 0', '<=', '-', 0.23874]
+        parsed_tokens = test_model.parse_equality_test(tokens)
+        assert parsed_tokens['sign'] == -1.0
+        assert parsed_tokens['value'] == 0.23874
+        assert parsed_tokens['index'] == 0
 
+        return
+
+    def test_run_test_function(self):
+        # load any model here, no difference
+        model_file = 'test_if_else.txt'
+        test_model = self.load_model(model_file)
+        # first, fail equality
+        tokens = ['feature 80', '>=', 12.8774]
+        feature_vector = [2.6513] * 81
+        parsed_tokens = test_model.parse_equality_test(tokens)
+        test = test_model.run_test(parsed_tokens, feature_vector)
+        assert test is False
+        # then, correct equality
+        tokens = ['feature 2', '<=', 12.8774]
+        feature_vector = [2.6513, 232.8774, 1.8774]
+        parsed_tokens = test_model.parse_equality_test(tokens)
+        test = test_model.run_test(parsed_tokens, feature_vector)
+        assert test is True
+
+        return
