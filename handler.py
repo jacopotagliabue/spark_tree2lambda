@@ -2,21 +2,18 @@ from __future__ import print_function
 import os
 import sys
 import json
-import ConfigParser
 import time
+from distutils import util
 from datetime import datetime
 # this is needed so that the script running on AWS will pick up the pre-compiled dependencies
 HERE = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(HERE, "vendored"))
 # import non standard dependencies
 from spark_to_python_service import Spark2Python
-# global variables living across requests
-Config = ConfigParser.ConfigParser()
-Config.read(os.path.join(HERE, 'settings.ini'))
 # init spark2python "service"
-MODEL_NAME = Config.get('app_data', 'MODEL_NAME')
-GRAMMAR_NAME = Config.get('app_data', 'GRAMMAR_NAME')
-VERBOSE = Config.getboolean('app_data', 'VERBOSE')
+MODEL_NAME = os.environ['MODEL_NAME']
+GRAMMAR_NAME = os.environ['GRAMMAR_NAME']
+VERBOSE = bool(util.strtobool(os.environ['VERBOSE']))
 model_file_path = os.path.join(HERE, 'models', MODEL_NAME)
 grammar_file_path = os.path.join(HERE, 'grammars', GRAMMAR_NAME)
 spark2python = Spark2Python(model_file_path, grammar_file_path, verbose=VERBOSE)

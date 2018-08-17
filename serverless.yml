@@ -25,4 +25,8 @@ functions:
           path: /predict
           method: get
           cors: true
+    environment:
+      MODEL_NAME: spark_decision_tree_model.txt
+      GRAMMAR_NAME: lark_decision_tree_grammar.txt
+      VERBOSE: True
 
