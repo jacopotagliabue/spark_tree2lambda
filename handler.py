@@ -14,6 +14,7 @@ from spark_to_python_service import Spark2Python
 MODEL_NAME = os.environ['MODEL_NAME']
 GRAMMAR_NAME = os.environ['GRAMMAR_NAME']
 VERBOSE = bool(util.strtobool(os.environ['VERBOSE']))
+print("Env variables set to {}, {}, {}".format(MODEL_NAME, GRAMMAR_NAME, VERBOSE))
 model_file_path = os.path.join(HERE, 'models', MODEL_NAME)
 grammar_file_path = os.path.join(HERE, 'grammars', GRAMMAR_NAME)
 spark2python = Spark2Python(model_file_path, grammar_file_path, verbose=VERBOSE)
