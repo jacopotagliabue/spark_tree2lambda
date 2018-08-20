@@ -2,7 +2,7 @@
 This project is the companion code for my Medium post on serving a decision tree trained with Spark through AWS Lambda (using [Serverless](https://serverless.com/)): 
 in a few minutes and a few lines of Python code you can serve predictions from a trained model through a lambda-powered endpoint(from "big-data" to "micro-services", so to speak). 
 
-Please refer to the Medium blog [post](https://medium.com/@jacopotagliabue/serving-tensorflow-predictions-with-python-and-aws-lambda-facb4ab87ddd#.v01eyg8kh) for a full explanation on the code structure, the philosophy behind it and how to properly deploy it.
+Please refer to the Medium blog [post](https://towardsdatascience.com/from-big-data-to-micro-services-how-to-serve-spark-trained-models-through-aws-lambdas-ebe129f4849c) for a full explanation on the code structure, the philosophy behind it and how to properly deploy it.
 
 ## TL;DR
 We share a pure Pythonic end-to-end workflow that will get you in minutes from a model trained in Spark to a public endpoint serving predictions. The main steps are the following:
